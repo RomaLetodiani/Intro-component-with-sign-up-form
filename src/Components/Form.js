@@ -9,13 +9,13 @@ const Form = () => {
     hasError: firstNameHasError,
     valueChangeHandler: firstNameChangeHandler,
     valueBlurHandler: firstNameBlurHandler,
-  } = useInput((value) => value.includes('@') && value.trim().length > 3);
+  } = useInput((value) => value.trim() !== '');
   const {
     value: lastNameValue,
     hasError: lastNameHasError,
     valueChangeHandler: lastNameChangeHandler,
     valueBlurHandler: lastNameBlurHandler,
-  } = useInput((value) => value.includes('@') && value.trim().length > 3);
+  } = useInput((value) => value.trim() !== '');
   const {
     value: emailValue,
     hasError: emailHasError,
@@ -29,7 +29,7 @@ const Form = () => {
     valueBlurHandler: passwordBlurHandler,
   } = useInput((value) => value.trim() !== '');
   return (
-    <div className="bg-white p-8 rounded-xl shadow-xl">
+    <div className="bg-white md:min-w-[460px] p-8 rounded-xl shadow-xl">
       <Input
         type="text"
         name="FirstName"
@@ -67,7 +67,7 @@ const Form = () => {
         hasError={passwordHasError}
       />
       <Button text="Claim your free trial" />
-      <p className="text-[#b9b6d3] text-xs text-center">
+      <p className="text-[#b9b6d3] mt-3 text-[9px] md:text-[11px] text-center m-auto w-3/4 md:w-11/12">
         By clicking the button, you are agreeing to our{' '}
         <span className="text-[#ff7a7a]">Terms and Services</span>
       </p>
